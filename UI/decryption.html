@@ -1,0 +1,49 @@
+<html>
+	<title>
+	Decryption
+	</title>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">		
+		<link rel="stylesheet" type="text/css" href="my_css.css">
+		<script type="text/javascript" src="/eel.js"></script>
+		<script type="text/javascript" src="/my_js.js"></script>
+		<link rel="icon" href="Images/color-palette.png">
+	</head>
+	<body oncontextmenu="return false;">
+		<button type="button" class="back_btn_css" onclick="goBack()">
+			<h1> <- </h1>
+		</button>
+	
+		
+		<button type="button" class="browse_image" onclick="Browse_js()">Browse</button>
+		
+		<img src="Images/sample_img.jpg" id="output_image" alt="Image Preview">
+		<textarea id="upload_text" name="upload_text" placeholder="Steganography is the practice of concealing a file, message, image, or video within another file, message, image, or video. Here we are using image. Browse image and press Decrypt Button. Text will be displayed here. This is the Decryption Window." rows="20" cols="80"></textarea>
+		
+		<button type="button" class="encryption_upload_btn" onclick="Decrypt_js()">Decrypt</button>
+	
+		
+		
+		
+
+		
+	</body>
+	<script>
+		document.onkeydown = function(e) {
+		if(event.keyCode == 123) {
+		return false;
+		}
+		if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+		return false;
+		}
+		if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+		return false;
+		}
+		if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+		return false;
+		}
+		}
+	</script>
+
+
+</html>

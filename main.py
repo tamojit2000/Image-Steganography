@@ -99,8 +99,8 @@ def Decrypt_python():
                         return data 
 
     except Exception as e:
-        file=open(location+'error_log.txt','w')
-        file.write(str(e))
+        file=open(location+'error_log.txt','a')
+        file.write('\n'+str(e))
         file.close()
 
         return 'Some error crept in. Check error_log in Desktop and please retry.'
@@ -131,8 +131,8 @@ def Encrypt_python(data,name):
             pass
         return "Done!"
     except Exception as e:
-        file=open(location+'error_log.txt','w')
-        file.write(str(e))
+        file=open(location+'error_log.txt','a')
+        file.write('\n'+str(e))
         file.close()
         return "Error. Open error_log file in desktop."
     
@@ -143,15 +143,23 @@ def Browse_python():
     try:
         root=Tk()
         root.iconbitmap('UI/Images/color-palette.ico')
+        
         root.withdraw()
-        file=askopenfilename()
-
-        new_file=file.split('/')[-1]
-        shutil.copy(file,os.getcwd()+'\\UI\\'+new_file)
+        root.wm_attributes('-topmost', 1)
+        file=askopenfilename(filetypes=[('Images','*.jpg'),('Images','*.png')])
+        #print(file)
+        new_file=os.path.basename(file)
         #print(new_file)
+        shutil.copy(file,os.getcwd()+'\\UI\\'+new_file)
         img='UI//'+new_file
+        #print(img)
         return new_file
-    except:
+    
+    except Exception as e:
+        location="C:\\Users\\{0}\\Desktop\\".format(os.getlogin())
+        file=open(location+'error_log.txt','a')
+        file.write('\n'+str(e))
+        file.close()
 
         
         return ''

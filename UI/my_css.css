@@ -118,4 +118,17 @@ body
 	height: 27px;
 	width: 100px;
 }
+.badging
+{
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	background: red;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	opacity: 1;
+	font-family: sans-serif;
+	font-style: italic;
+}
+	
 	

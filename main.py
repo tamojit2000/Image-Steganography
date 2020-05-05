@@ -5,10 +5,8 @@ import os
 from tkinter.filedialog import askopenfilename
 from tkinter import Tk
 import shutil
-
-eel.init('UI')
-
-img=''
+import sys
+import win32com.shell.shell as shell
 
 def genData(data): 
 		newd = [] 
@@ -164,8 +162,20 @@ def Browse_python():
         
         return ''
 
+ASADMIN = 'asadmin'
+
+if sys.argv[-1] != ASADMIN:
+    script = os.path.abspath(sys.argv[0])
+    params = ' '.join([script] + sys.argv[1:] + [ASADMIN])
+    shell.ShellExecuteEx(lpVerb='runas', lpFile=sys.executable, lpParameters=params)
+    #print("I am root now.")
 
 
-eel.start('index.html',size=(1000,500))
+    eel.init('UI')
+
+    img=''
+
+
+    eel.start('index.html',size=(1000,500))
 
 
